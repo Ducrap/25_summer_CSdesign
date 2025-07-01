@@ -4,12 +4,13 @@
 #include <queue>
 #include <mutex>
 #include <vector>
+#include <stdexcept>
 #include "request.h"
 
 class queue{
 private:
     std::priority_queue<request> requestQueue;
-    std::mutex queueMutex;
+    mutable std::mutex queueMutex;
 
 public:
     //添加请求到队列
